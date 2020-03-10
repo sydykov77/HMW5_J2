@@ -18,10 +18,9 @@ public class PassengerThread extends Thread {
     public synchronized void run() {
         try {
             semaphore.acquire();
-            System.out.println("Пассажир №" + id + " купил билет");
             sleep(100);
             semaphore.release();
-            System.out.println("Пассажир №"+id+" сел в автобус");
+            System.out.println("Пассажир №"+id+" купил билет и сел в автобус");
             countDownLatch.countDown();
             Thread.sleep(id*10);
         } catch (InterruptedException e) {
