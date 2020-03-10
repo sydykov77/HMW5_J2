@@ -23,6 +23,10 @@ public class PassengerThread extends Thread {
             System.out.println("Пассажир №"+id+" купил билет и сел в автобус");
             countDownLatch.countDown();
             Thread.sleep(id*10);
+            countDownLatch.await();
+            if (id>=100){
+                System.out.println("Aвтобус поехал!");
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
